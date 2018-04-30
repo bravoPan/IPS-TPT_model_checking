@@ -1,6 +1,6 @@
 # CSE108_IPS_model_checking
 
-## CSE110 prism assignment
+## CSE108 prism assignment
 
 5 members team-work, guys work fun and enjoy it! 😙
 
