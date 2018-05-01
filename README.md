@@ -40,3 +40,19 @@ failure situation:
 2. `Input` can fail. If available **processors < 3**, the whole system is shut down. `Main processor` failure is the same as model1.
 
 3. Permanent and transient situation is the same as the model1
+
+
+## Checking items  
+
+- Panel with different sensors in 24 hours and 30 days
+Result: Changing the number of sensors may not be dependable
+
+- Failure rate:
+
+    - the sensor with different failure rate. It could find which time point the         failure rate increase slowly
+
+    - the different failure rate of processor
+
+    - different failure rate of application
+
+- Two models comparison
