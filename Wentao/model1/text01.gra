@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE chartFormat SYSTEM "chartformat.dtd">
+<chartFormat graphTitle="" legendFontColourB="0" legendFontColourG="0" legendFontColourR="0" legendFontName="SansSerif" legendFontSize="11" legendFontStyle="0" legendPosition="right" legendVisible="true" titleFontColourB="0" titleFontColourG="0" titleFontColourR="0" titleFontName="SansSerif" titleFontSize="14" titleFontStyle="0" versionString="4.4">
+<layout/>
+<axis autoscale="true" heading="T" headingFontColourB="0" headingFontColourG="0" headingFontColourR="0" headingFontName="SansSerif" headingFontSize="12" headingFontStyle="0" logBase="10.0" logStyle="1" logarithmic="false" majorColourB="204" majorColourG="204" majorColourR="204" majorGridInterval="0.2" maxValue="1.0" maximumPower="1.0" minValue="0.0" minimumPower="0.0" numberFontColourB="0" numberFontColourG="0" numberFontColourR="0" numberFontName="SansSerif" numberFontSize="12" numberFontStyle="0" showMajor="true"/>
+<axis autoscale="true" heading="Probability" headingFontColourB="0" headingFontColourG="0" headingFontColourR="0" headingFontName="SansSerif" headingFontSize="12" headingFontStyle="0" logBase="10.0" logStyle="1" logarithmic="false" majorColourB="204" majorColourG="204" majorColourR="204" majorGridInterval="0.2" maxValue="1.0" maximumPower="1.0" minValue="0.0" minimumPower="0.0" numberFontColourB="0" numberFontColourG="0" numberFontColourR="0" numberFontName="SansSerif" numberFontSize="12" numberFontStyle="0" showMajor="true"/>
+<graph lineStyle="normal" lineWidth="1.0" seriesColourB="255" seriesColourG="0" seriesColourR="0" seriesHeading="antenna16" seriesShape="circle" showLines="true" showPoints="true">
+<point x="0.0" y="0.0"/>
+<point x="1.0" y="3.3024290123326717E-23"/>
+<point x="2.0" y="4.431656187547443E-19"/>
+<point x="3.0" y="1.0601477550058262E-16"/>
+<point x="4.0" y="4.8782163337400626E-15"/>
+<point x="5.0" y="9.098816583597121E-14"/>
+<point x="6.0" y="9.588228218494964E-13"/>
+<point x="7.0" y="6.814631336491233E-12"/>
+<point x="8.0" y="3.6308738718530546E-11"/>
+<point x="9.0" y="1.5526072769619923E-10"/>
+<point x="10.0" y="5.582333180960043E-10"/>
+<point x="11.0" y="1.7446058259315064E-9"/>
+<point x="12.0" y="4.8568699092053845E-9"/>
+<point x="13.0" y="1.2271036797862558E-8"/>
+<point x="14.0" y="2.8546892808530078E-8"/>
+<point x="15.0" y="6.185480981513254E-8"/>
+<point x="16.0" y="1.25992127726489E-7"/>
+<point x="17.0" y="2.430835201234042E-7"/>
+<point x="18.0" y="4.470259362413885E-7"/>
+<point x="19.0" y="7.876914256620439E-7"/>
+<point x="20.0" y="1.3358439301198222E-6"/>
+<point x="21.0" y="2.188663802588961E-6"/>
+<point x="22.0" y="3.4757118925288014E-6"/>
+<point x="23.0" y="5.365109040846243E-6"/>
+<point x="24.0" y="8.069661707481283E-6"/>
+</graph>
+<graph lineStyle="normal" lineWidth="1.0" seriesColourB="0" seriesColourG="127" seriesColourR="0" seriesHeading="antenna4" seriesShape="square" showLines="true" showPoints="true">
+<point x="0.0" y="0.0"/>
+<point x="1.0" y="3.0256089001500596E-7"/>
+<point x="2.0" y="1.1740091891404483E-6"/>
+<point x="3.0" y="2.5627920532215916E-6"/>
+<point x="4.0" y="4.42091809211729E-6"/>
+<point x="5.0" y="6.703727347460984E-6"/>
+<point x="6.0" y="9.369679314575757E-6"/>
+<point x="7.0" y="1.238015474598299E-5"/>
+<point x="8.0" y="1.5699265381076838E-5"/>
+<point x="9.0" y="1.9293684723120105E-5"/>
+<point x="10.0" y="2.3132481024044488E-5"/>
+<point x="11.0" y="2.7186964674842127E-5"/>
+<point x="12.0" y="3.143054441705738E-5"/>
+<point x="13.0" y="3.583859253498486E-5"/>
+<point x="14.0" y="4.038831845045722E-5"/>
+<point x="15.0" y="4.505865018195072E-5"/>
+<point x="16.0" y="4.983012316658553E-5"/>
+<point x="17.0" y="5.468477597772658E-5"/>
+<point x="18.0" y="5.960605250246297E-5"/>
+<point x="19.0" y="6.45787101725213E-5"/>
+<point x="20.0" y="6.958873386930602E-5"/>
+<point x="21.0" y="7.462325514890199E-5"/>
+<point x="22.0" y="7.967047645624895E-5"/>
+<point x="23.0" y="8.471960001936534E-5"/>
+<point x="24.0" y="8.976076113463342E-5"/>
+</graph>
+<graph lineStyle="normal" lineWidth="1.0" seriesColourB="0" seriesColourG="0" seriesColourR="255" seriesHeading="antenna8" seriesShape="triangle" showLines="true" showPoints="true">
+<point x="0.0" y="0.0"/>
+<point x="1.0" y="1.1684283510602066E-12"/>
+<point x="2.0" y="6.996635498364487E-11"/>
+<point x="3.0" y="7.45773627897487E-10"/>
+<point x="4.0" y="3.921685420560613E-9"/>
+<point x="5.0" y="1.4003252664133868E-8"/>
+<point x="6.0" y="3.9144892870208116E-8"/>
+<point x="7.0" y="9.242236807635122E-8"/>
+<point x="8.0" y="1.9284669948154514E-7"/>
+<point x="9.0" y="3.661617328025307E-7"/>
+<point x="10.0" y="6.453949857358336E-7"/>
+<point x="11.0" y="1.0711527300790602E-6"/>
+<point x="12.0" y="1.6916652819552653E-6"/>
+<point x="13.0" y="2.5625992829557754E-6"/>
+<point x="14.0" y="3.7466609074284117E-6"/>
+<point x="15.0" y="5.313018288299771E-6"/>
+<point x="16.0" y="7.3365736420859485E-6"/>
+<point x="17.0" y="9.897116113263126E-6"/>
+<point x="18.0" y="1.3078385672232273E-5"/>
+<point x="19.0" y="1.6967076831953657E-5"/>
+<point x="20.0" y="2.165180877054441E-5"/>
+<point x="21.0" y="2.7222085879015804E-5"/>
+<point x="22.0" y="3.376726996652639E-5"/>
+<point x="23.0" y="4.137558248314333E-5"/>
+<point x="24.0" y="5.013315226355638E-5"/>
+</graph>
+<graph lineStyle="normal" lineWidth="1.0" seriesColourB="191" seriesColourG="191" seriesColourR="0" seriesHeading="antenna12" seriesShape="rectangle_h" showLines="true" showPoints="true">
+<point x="0.0" y="0.0"/>
+<point x="1.0" y="3.349570858387492E-18"/>
+<point x="2.0" y="3.036623987081714E-15"/>
+<point x="3.0" y="1.550657700365308E-13"/>
+<point x="4.0" y="2.4390923105840146E-12"/>
+<point x="5.0" y="2.0126408602232878E-11"/>
+<point x="6.0" y="1.1044083540689924E-10"/>
+<point x="7.0" y="4.573636632090631E-10"/>
+<point x="8.0" y="1.5415515803339567E-9"/>
+<point x="9.0" y="4.4399022621888106E-9"/>
+<point x="10.0" y="1.129670462766372E-8"/>
+<point x="11.0" y="2.600133192401516E-8"/>
+<point x="12.0" y="5.509496374350828E-8"/>
+<point x="13.0" y="1.0891247783933376E-7"/>
+<point x="14.0" y="2.0294736116421397E-7"/>
+<point x="15.0" y="3.594091749482979E-7"/>
+<point x="16.0" y="6.089264589575851E-7"/>
+<point x="17.0" y="9.923342936389208E-7"/>
+<point x="18.0" y="1.5624759458336083E-6"/>
+<point x="19.0" y="2.385942566629952E-6"/>
+<point x="20.0" y="3.544673864441324E-6"/>
+<point x="21.0" y="5.137345796688624E-6"/>
+<point x="22.0" y="7.280478118628703E-6"/>
+<point x="23.0" y="1.0109204440065882E-5"/>
+<point x="24.0" y="1.3777659518007225E-5"/>
+</graph>
+</chartFormat>
