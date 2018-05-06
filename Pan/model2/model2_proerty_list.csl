@@ -1,7 +1,7 @@
 const double T;
 
 label "fail_sensors" = (a1 = 0) | (a2 = 0) | (a3 = 0) | (a4=0);
-label "fail_pos_pro" =  (pr1 = 0) | (pr2 = 0) | (pr3 = 0) | (pr4 = 0);
+label "fail_pos_pro" =  (a1 = 0 & a2 = 0) | (a1 = 0 & a3 = 0) | (a1 = 0 & a4 = 0) | (a2 = 0 & a3 = 0) |(a3 = 0 & a4 = 0) | (m < MIN_SERVER);
 label "fail_server" = m < MIN_SERVER | t < MIN_SERVER;
 label "fail_ble" = b < MIN_BLESENDER | r < MIN_BLERECEIVER;
 label "fail_device" = x = 2 & d < MIN_DEVICE;

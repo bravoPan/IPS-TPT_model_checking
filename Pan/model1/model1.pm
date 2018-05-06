@@ -21,7 +21,7 @@ const double br_rate = 1/(15*24*60*60);
 // sensors
 module pa
 	s : [0..4] init 4; //number of sensors
-	[]s>1 -> s * lambda_m: (s'=s-1);//failure of a single sensor
+	[]s>1 -> s * delta_d * 10: (s'=s-1);//failure of a single sensor
 endmodule
 
 
@@ -58,7 +58,7 @@ module pos_pro
 	e : [0..2] init 2;
 	[] e > 0 & (s < MIN_SENSORS | m < MIN_SERVER ) -> (e' = 0);
 	[] e  = 2 & (s >= MIN_SENSORS & m >= MIN_SERVER ) -> lambda_m : (e' = e - 1);
-	[pos_pro_reboot] e = 1 & s >= MIN_SENSORS & m >= MIN_SERVER-> delta_d: (e' = 2);
+	[pos_pro_reboot] e = 1 & m >= MIN_SERVER-> delta_d: (e' = 2);
 endmodule
 
 

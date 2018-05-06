@@ -18,43 +18,43 @@ const double bs_rate = 1/(15*24*60*60);
 const double br_rate = 1/(15*24*60*60);
 
 
-// ant1 
-module ant1 
+// ant1
+module ant1
 	a1: [0..1] init 1;
 	[] a1 > 0 -> a1 *  lambda_y: (a1'=a1-1);
-endmodule 
+endmodule
 
-// processor1 
-module pos_pro1 
+// processor1
+module pos_pro1
 	pr1 : [0..2] init 2; // 2 = ok, 1 = transient, 0 = fail
 	[] pr1 > 0 & (a1 < MIN_SENSOR | m < MIN_SERVER) -> (pr1' = 0);
 	[] pr1 = 2 & (a1 >= MIN_SENSOR & m >= MIN_SERVER) -> delta_r: (pr1' = pr1 - 1);
-	[pr1_reboot] (pr1 = 1) & (a1 >= MIN_SENSOR) & (m >= MIN_SERVER) -> delta_d : (pr1' = 2); 
-endmodule 
+	[pr1_reboot] (pr1 = 1) & (a1 >= MIN_SENSOR) & (m >= MIN_SERVER) -> delta_d : (pr1' = 2);
+endmodule
 
-// ant2 
+// ant2
 module ant2=ant1[a1=a2]
-endmodule 
+endmodule
 
-// processor2 
+// processor2
 module pos_pro2=pos_pro1[pr1=pr2, a1 = a2, pr1_reboot = pr2_reboot]
-endmodule 
+endmodule
 
-// ant3 
+// ant3
 module ant3=ant1[a1=a3]
-endmodule 
+endmodule
 
-// processor3 
+// processor3
 module pos_pro3 = pos_pro1[pr1=pr3, a1=a3, pr1_reboot = pr3_reboot]
-endmodule 
+endmodule
 
-// ant4 
+// ant4
 module ant4=ant1[a1=a4]
-endmodule 
+endmodule
 
 // processor4
 module pos_pro4=pos_pro1[pr1=pr4, a1=a4, pr1_reboot=pr4_reboot]
-endmodule 
+endmodule
 
 // positioning server
 module pos_server
@@ -111,26 +111,26 @@ module bus
 	repa : bool init true;
 	// dispatch radio has been processed data and ready to send
 	redr : bool init false;
-		
+
 	// first reboot
 	[pr1_reboot] true -> 1:
 	(comp' = (comp | mp=1 & !redr))
 	&(repa'=true)
 	& (redr' = !((pr1 > 0  & (pr2 > 0) & (pr3 > 0) & (pr4 > 0)) & a1 >= MIN_SENSOR & x = 2 & d >= MIN_DEVICE & t >= MIN_SERVER & b >= MIN_BLESENDER & r >= MIN_BLERECEIVER) & (redr | mp = 1));
-	
-	// second reboot 
+
+	// second reboot
 	[pr2_reboot] true -> 1:
 	(comp' = (comp | mp=1 & !redr))
 	&(repa'=true)
 	& (redr' = !((pr1 > 0  & (pr2 > 0) & (pr3 > 0) & (pr4 > 0)) & a2 >= MIN_SENSOR & x = 2 & d >= MIN_DEVICE & t >= MIN_SERVER & b >= MIN_BLESENDER & r >= MIN_BLERECEIVER) & (redr | mp = 1));
-	
+
 	// third reboot
 	[pr3_reboot] true -> 1:
 	(comp' = (comp | mp=1 & !redr))
 	&(repa'=true)
 	& (redr' = !((pr1 > 0  & (pr2 > 0) & (pr3 > 0) & (pr4 > 0)) & a3 >= MIN_SENSOR & x = 2 & d >= MIN_DEVICE & t >= MIN_SERVER & b >= MIN_BLESENDER & r >= MIN_BLERECEIVER) & (redr | mp = 1));
-	
-	// fourth reboot 
+
+	// fourth reboot
 	[pr4_reboot] true -> 1:
 	(comp' = (comp | mp=1 & !redr))
 	&(repa'=true)

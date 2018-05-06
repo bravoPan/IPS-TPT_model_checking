@@ -1,14 +1,14 @@
 const double T;
 
 label "fail_sensors" = (a1 = 0);
-label "fail_pos_pro" =  (pr1 = 0 | pr2 = 0);
+label "fail_pos_pro" =  (a1 = 0 & a2 = 0) | (a1 = 0 & a3 = 0) | (a1 = 0 & a4 = 0) | (a2 = 0 & a3 = 0) |(a3 = 0 & a4 = 0) | (m < MIN_SERVER);
 label "fail_server" = m < MIN_SERVER | t < MIN_SERVER;
 label "fail_ble" = b < MIN_BLESENDER | r < MIN_BLERECEIVER;
 label "fail_device" = x = 2 & d < MIN_DEVICE;
 label "fail_io" = count = MAX_COUNT + 1;
 label "fail_main" = mp=0;
 
-label "down" = (m < MIN_SERVER) | (t < MIN_SERVER) | (b < MIN_BLESENDER) | (r < MIN_BLERECEIVER) | (d < MIN_DEVICE) | (pr1 = 0)| (pr2=0) | (x = 0) | (count = MAX_COUNT + 1) | (a1 = 0) | (a2 = 0);
+label "down" = (m < MIN_SERVER) | (t < MIN_SERVER) | (b < MIN_BLESENDER) | (r < MIN_BLERECEIVER) | (d < MIN_DEVICE) | (pr1 = 0)| (pr2=0) | (x = 0) | (count = MAX_COUNT + 1) |(a1 = 0 & a2 = 0) | (a1 = 0 & a3 = 0) | (a1 = 0 & a4 = 0) | (a2 = 0 & a3 = 0) |(a3 = 0 & a4 = 0);
 
 label "danger" = !down & (pr1 = 1 | pr2 = 1 | x = 1);
 
@@ -22,6 +22,7 @@ P = ?[ !"down" U<=(T*3600) "fail_ble"]
 P = ?[ !"down" U<=(T*3600) "fail_device"]
 P = ?[ !"down" U<=(T*3600) "fail_io"]
 P = ?[ !"down" U<=(T*3600) "fail_main"]
+P = ?[ true U<=(T*3600) "down"]
 
 // down within 24 hours
 P = ?[ true U<=(T*3600*24) "down"]
