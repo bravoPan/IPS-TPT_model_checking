@@ -8,7 +8,7 @@ label "fail_device" = x = 2 & d < MIN_DEVICE;
 label "fail_io" = count = MAX_COUNT + 1;
 label "fail_main" = mp=0;
 
-label "down" = (m < MIN_SERVER) | (t < MIN_SERVER) | (b < MIN_BLESENDER) | (r < MIN_BLERECEIVER) | (d < MIN_DEVICE) | (pr1 = 0)| (pr2=0) | (x = 0) | (count = MAX_COUNT + 1);
+label "down" = (m < MIN_SERVER) | (t < MIN_SERVER) | (b < MIN_BLESENDER) | (r < MIN_BLERECEIVER) | (d < MIN_DEVICE) | (pr1 = 0)| (pr2=0) | (x = 0) | (count = MAX_COUNT + 1) | (a1 = 0) | (a2 = 0);
 
 label "danger" = !down & (pr1 = 1 | pr2 = 1 | x = 1);
 
