@@ -6,6 +6,7 @@ label "fail_ble" = b < MIN_BLESENDER | r < MIN_BLERECEIVER;
 label "fail_device" = x = 2 & d < MIN_DEVICE;
 label "fail_io" = count = MAX_COUNT + 1;
 label "fail_main" = mp=0;
+label "fail_pos_poi" = e = 0;
 
 // system status
 label "down" = (m < MIN_SERVER) | (t < MIN_SERVER) | (b < MIN_BLESENDER) | (r < MIN_BLERECEIVER) | (d < MIN_DEVICE) | (e = 0) | (x = 0) | (s < MIN_SENSORS) | (count = MAX_COUNT + 1);
