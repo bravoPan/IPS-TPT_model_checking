@@ -26,7 +26,7 @@ const double br_rate = 1/(15*24*60*60);
 // sensors
 module pa
 	s : [0..MAX_SENSORS] init MAX_SENSORS; //number of sensors
-	[]s>1 -> s * delta_w*2: (s'=s-1);//failure of a single sensor
+	[]s>1 -> s * delta_w*3: (s'=s-1);//failure of a single sensor
 endmodule
 
 
