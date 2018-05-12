@@ -4,7 +4,7 @@
 <layout/>
 <axis autoscale="true" heading="T" headingFontColourB="0" headingFontColourG="0" headingFontColourR="0" headingFontName="SansSerif" headingFontSize="12" headingFontStyle="0" logBase="10.0" logStyle="1" logarithmic="false" majorColourB="204" majorColourG="204" majorColourR="204" majorGridInterval="0.2" maxValue="1.0" maximumPower="1.0" minValue="0.0" minimumPower="0.0" numberFontColourB="0" numberFontColourG="0" numberFontColourR="0" numberFontName="SansSerif" numberFontSize="12" numberFontStyle="0" showMajor="true"/>
 <axis autoscale="true" heading="Probability" headingFontColourB="0" headingFontColourG="0" headingFontColourR="0" headingFontName="SansSerif" headingFontSize="12" headingFontStyle="0" logBase="10.0" logStyle="1" logarithmic="false" majorColourB="204" majorColourG="204" majorColourR="204" majorGridInterval="0.2" maxValue="1.0" maximumPower="1.0" minValue="0.0" minimumPower="0.0" numberFontColourB="0" numberFontColourG="0" numberFontColourR="0" numberFontName="SansSerif" numberFontSize="12" numberFontStyle="0" showMajor="true"/>
-<graph lineStyle="normal" lineWidth="1.0" seriesColourB="255" seriesColourG="0" seriesColourR="0" seriesHeading="antenna4" seriesShape="circle" showLines="true" showPoints="true">
+<graph lineStyle="normal" lineWidth="1.0" seriesColourB="255" seriesColourG="0" seriesColourR="0" seriesHeading="4 antennas" seriesShape="circle" showLines="true" showPoints="true">
 <point x="0.0" y="0.0"/>
 <point x="1.0" y="8.976076113463342E-5"/>
 <point x="2.0" y="1.9415286665295004E-4"/>
@@ -37,7 +37,7 @@
 <point x="29.0" y="3.068740808638648E-4"/>
 <point x="30.0" y="3.068740808638648E-4"/>
 </graph>
-<graph lineStyle="normal" lineWidth="1.0" seriesColourB="0" seriesColourG="127" seriesColourR="0" seriesHeading="antenna8" seriesShape="square" showLines="true" showPoints="true">
+<graph lineStyle="normal" lineWidth="1.0" seriesColourB="0" seriesColourG="127" seriesColourR="0" seriesHeading="8 antennas" seriesShape="square" showLines="true" showPoints="true">
 <point x="0.0" y="0.0"/>
 <point x="1.0" y="5.013315226355637E-5"/>
 <point x="2.0" y="7.338558478196807E-4"/>
@@ -70,7 +70,7 @@
 <point x="29.0" y="0.004596703156480596"/>
 <point x="30.0" y="0.004596703156480596"/>
 </graph>
-<graph lineStyle="normal" lineWidth="1.0" seriesColourB="0" seriesColourG="0" seriesColourR="255" seriesHeading="antenna12" seriesShape="triangle" showLines="true" showPoints="true">
+<graph lineStyle="normal" lineWidth="1.0" seriesColourB="0" seriesColourG="0" seriesColourR="255" seriesHeading="12 antennas" seriesShape="triangle" showLines="true" showPoints="true">
 <point x="0.0" y="0.0"/>
 <point x="1.0" y="1.3777659518007225E-5"/>
 <point x="2.0" y="9.509287893311384E-4"/>
@@ -103,7 +103,7 @@
 <point x="29.0" y="0.010898781947214643"/>
 <point x="30.0" y="0.010898781947214643"/>
 </graph>
-<graph lineStyle="normal" lineWidth="1.0" seriesColourB="191" seriesColourG="191" seriesColourR="0" seriesHeading="antenna16" seriesShape="rectangle_h" showLines="true" showPoints="true">
+<graph lineStyle="normal" lineWidth="1.0" seriesColourB="191" seriesColourG="191" seriesColourR="0" seriesHeading="16 antennas" seriesShape="rectangle_h" showLines="true" showPoints="true">
 <point x="0.0" y="0.0"/>
 <point x="1.0" y="8.069661707481283E-6"/>
 <point x="2.0" y="0.0017510723938884774"/>

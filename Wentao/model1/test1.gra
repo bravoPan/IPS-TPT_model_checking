@@ -4,34 +4,7 @@
 <layout/>
 <axis autoscale="true" heading="T" headingFontColourB="0" headingFontColourG="0" headingFontColourR="0" headingFontName="SansSerif" headingFontSize="12" headingFontStyle="0" logBase="10.0" logStyle="1" logarithmic="false" majorColourB="204" majorColourG="204" majorColourR="204" majorGridInterval="0.2" maxValue="1.0" maximumPower="1.0" minValue="0.0" minimumPower="0.0" numberFontColourB="0" numberFontColourG="0" numberFontColourR="0" numberFontName="SansSerif" numberFontSize="12" numberFontStyle="0" showMajor="true"/>
 <axis autoscale="true" heading="Probability" headingFontColourB="0" headingFontColourG="0" headingFontColourR="0" headingFontName="SansSerif" headingFontSize="12" headingFontStyle="0" logBase="10.0" logStyle="1" logarithmic="false" majorColourB="204" majorColourG="204" majorColourR="204" majorGridInterval="0.2" maxValue="1.0" maximumPower="1.0" minValue="0.0" minimumPower="0.0" numberFontColourB="0" numberFontColourG="0" numberFontColourR="0" numberFontName="SansSerif" numberFontSize="12" numberFontStyle="0" showMajor="true"/>
-<graph lineStyle="normal" lineWidth="1.0" seriesColourB="255" seriesColourG="0" seriesColourR="0" seriesHeading="antenna16" seriesShape="circle" showLines="true" showPoints="true">
-<point x="0.0" y="0.0"/>
-<point x="1.0" y="3.3024290123326717E-23"/>
-<point x="2.0" y="4.431656187547443E-19"/>
-<point x="3.0" y="1.0601477550058262E-16"/>
-<point x="4.0" y="4.8782163337400626E-15"/>
-<point x="5.0" y="9.098816583597121E-14"/>
-<point x="6.0" y="9.588228218494964E-13"/>
-<point x="7.0" y="6.814631336491233E-12"/>
-<point x="8.0" y="3.6308738718530546E-11"/>
-<point x="9.0" y="1.5526072769619923E-10"/>
-<point x="10.0" y="5.582333180960043E-10"/>
-<point x="11.0" y="1.7446058259315064E-9"/>
-<point x="12.0" y="4.8568699092053845E-9"/>
-<point x="13.0" y="1.2271036797862558E-8"/>
-<point x="14.0" y="2.8546892808530078E-8"/>
-<point x="15.0" y="6.185480981513254E-8"/>
-<point x="16.0" y="1.25992127726489E-7"/>
-<point x="17.0" y="2.430835201234042E-7"/>
-<point x="18.0" y="4.470259362413885E-7"/>
-<point x="19.0" y="7.876914256620439E-7"/>
-<point x="20.0" y="1.3358439301198222E-6"/>
-<point x="21.0" y="2.188663802588961E-6"/>
-<point x="22.0" y="3.4757118925288014E-6"/>
-<point x="23.0" y="5.365109040846243E-6"/>
-<point x="24.0" y="8.069661707481283E-6"/>
-</graph>
-<graph lineStyle="normal" lineWidth="1.0" seriesColourB="0" seriesColourG="127" seriesColourR="0" seriesHeading="antenna4" seriesShape="square" showLines="true" showPoints="true">
+<graph lineStyle="normal" lineWidth="1.0" seriesColourB="0" seriesColourG="127" seriesColourR="0" seriesHeading="4 antennas" seriesShape="square" showLines="true" showPoints="true">
 <point x="0.0" y="0.0"/>
 <point x="1.0" y="3.0256089001500596E-7"/>
 <point x="2.0" y="1.1740091891404483E-6"/>
@@ -58,7 +31,7 @@
 <point x="23.0" y="8.471960001936534E-5"/>
 <point x="24.0" y="8.976076113463342E-5"/>
 </graph>
-<graph lineStyle="normal" lineWidth="1.0" seriesColourB="0" seriesColourG="0" seriesColourR="255" seriesHeading="antenna8" seriesShape="triangle" showLines="true" showPoints="true">
+<graph lineStyle="normal" lineWidth="1.0" seriesColourB="0" seriesColourG="0" seriesColourR="255" seriesHeading="8 antennas" seriesShape="triangle" showLines="true" showPoints="true">
 <point x="0.0" y="0.0"/>
 <point x="1.0" y="1.1684283510602066E-12"/>
 <point x="2.0" y="6.996635498364487E-11"/>
@@ -85,7 +58,7 @@
 <point x="23.0" y="4.137558248314333E-5"/>
 <point x="24.0" y="5.013315226355638E-5"/>
 </graph>
-<graph lineStyle="normal" lineWidth="1.0" seriesColourB="191" seriesColourG="191" seriesColourR="0" seriesHeading="antenna12" seriesShape="rectangle_h" showLines="true" showPoints="true">
+<graph lineStyle="normal" lineWidth="1.0" seriesColourB="191" seriesColourG="191" seriesColourR="0" seriesHeading="12 antennas" seriesShape="rectangle_h" showLines="true" showPoints="true">
 <point x="0.0" y="0.0"/>
 <point x="1.0" y="3.349570858387492E-18"/>
 <point x="2.0" y="3.036623987081714E-15"/>
@@ -111,5 +84,32 @@
 <point x="22.0" y="7.280478118628703E-6"/>
 <point x="23.0" y="1.0109204440065882E-5"/>
 <point x="24.0" y="1.3777659518007225E-5"/>
+</graph>
+<graph lineStyle="normal" lineWidth="1.0" seriesColourB="255" seriesColourG="0" seriesColourR="0" seriesHeading="16 antennas" seriesShape="circle" showLines="true" showPoints="true">
+<point x="0.0" y="0.0"/>
+<point x="1.0" y="3.3024290123326717E-23"/>
+<point x="2.0" y="4.431656187547443E-19"/>
+<point x="3.0" y="1.0601477550058262E-16"/>
+<point x="4.0" y="4.8782163337400626E-15"/>
+<point x="5.0" y="9.098816583597121E-14"/>
+<point x="6.0" y="9.588228218494964E-13"/>
+<point x="7.0" y="6.814631336491233E-12"/>
+<point x="8.0" y="3.6308738718530546E-11"/>
+<point x="9.0" y="1.5526072769619923E-10"/>
+<point x="10.0" y="5.582333180960043E-10"/>
+<point x="11.0" y="1.7446058259315064E-9"/>
+<point x="12.0" y="4.8568699092053845E-9"/>
+<point x="13.0" y="1.2271036797862558E-8"/>
+<point x="14.0" y="2.8546892808530078E-8"/>
+<point x="15.0" y="6.185480981513254E-8"/>
+<point x="16.0" y="1.25992127726489E-7"/>
+<point x="17.0" y="2.430835201234042E-7"/>
+<point x="18.0" y="4.470259362413885E-7"/>
+<point x="19.0" y="7.876914256620439E-7"/>
+<point x="20.0" y="1.3358439301198222E-6"/>
+<point x="21.0" y="2.188663802588961E-6"/>
+<point x="22.0" y="3.4757118925288014E-6"/>
+<point x="23.0" y="5.365109040846243E-6"/>
+<point x="24.0" y="8.069661707481283E-6"/>
 </graph>
 </chartFormat>
