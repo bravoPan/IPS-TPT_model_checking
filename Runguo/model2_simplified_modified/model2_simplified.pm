@@ -1,34 +1,52 @@
 ctmc
 
 const int MAX_COUNT;
-const int MIN_SENSORS = 3;
+const int MIN_SENSOR = 1;
 const int MIN_POSITIONMING_PROCESSOR = 1;
 const int MIN_BLESENDER = 1;
 const int MIN_BLERECEIVER = 1;
 const int MIN_DEVICE = 1;
 const int MIN_SERVER = 1;
-const int MAX_SENSORS;
 
 const double lambda_y = 1 / (365*24*60*60); //1 year
-const double lambda_y2 = 1/(183*24*60*60); // 6 months
 const double lambda_m = 1 / (30 * 24 * 60 * 60); //1 month
-const double lambda_3m = 1/(3*30*24*60*60); // 3 months
-const double lambda_tm = 1 / (3*30*24*60*60); // months
+const double lambda_tm = 1 / (2*30*24*60*60); //2 months
 const double tau = 1 / 60; //1 min
-const double hour = 1/(60*60);// 1 hour
 const double delta_d = 1/(24*60*60);//1 day
-const double delta_w = 1/(7*24*60*60); // 1 week
-const double delta_2w = 1/(14*24*60*60); // 2 weeks
-const double delta_r = 1/30;//1 second
+const double delta_r = 1/60;//1 second
 const double bs_rate = 1/(15*24*60*60);
 const double br_rate = 1/(15*24*60*60);
 
-// sensors
-module pa
-	s : [0..MAX_SENSORS] init MAX_SENSORS; //number of sensors
-	[]s>1 -> s * delta_w*3: (s'=s-1);//failure of a single sensor
+
+// ant1
+module ant1
+	a1: [0..1] init 1;
+	[] a1 > 0 -> a1 *  delta_d * 10: (a1'=a1-1);
 endmodule
 
+// processor1
+module pos_pro1
+	pr1 : [0..2] init 2; // 2 = ok, 1 = transient, 0 = fail
+	[] pr1 > 0 & (a1 < MIN_SENSOR | m < MIN_SERVER) -> (pr1' = 0);
+	[] pr1 = 2 & (a1 >= MIN_SENSOR & m >= MIN_SERVER) -> delta_r: (pr1' = pr1 - 1);
+	[pr1_reboot] (pr1 = 1) & (a1 >= MIN_SENSOR) & (m >= MIN_SERVER) -> delta_d : (pr1' = 2);
+endmodule
+
+// ant2
+module ant2=ant1[a1=a2]
+endmodule
+
+// ant3
+module ant3=ant1[a1=a3]
+endmodule
+
+// ant2
+module ant4=ant1[a1=a4]
+endmodule
+
+// processor2
+module pos_pro2=pos_pro1[pr1=pr2, a1 = a2, pr1_reboot = pr2_reboot]
+endmodule
 
 // positioning server
 module pos_server
@@ -40,7 +58,7 @@ endmodule
 module app_server = pos_server[m=t]
 endmodule
 
-// bluetooth sender
+// bluetooth sende
 module ble_sender
 	b : [0..1] init 1;
 	[] b > 0 -> b * lambda_tm : (b' = b - 1);
@@ -58,23 +76,13 @@ module device
 	[] d > 0 -> d * lambda_tm : (d' = d -1);
 endmodule
 
-// connection between sensors and positioning server layer
-module pos_pro
-	e : [0..2] init 2;
-	[] e > 0 & (s < MIN_SENSORS | m < MIN_SERVER ) -> (e' = 0);
-	[] e  = 2 & (s >= MIN_SENSORS & m >= MIN_SERVER ) -> lambda_m : (e' = e - 1);
-	[pos_pro_reboot] e = 1 & s >= MIN_SENSORS & m >= MIN_SERVER-> delta_d: (e' = 2);
-endmodule
-
-
-// connection between acturators and application server
+// connection between devices and application server
 module dis_rad
 	x : [0..2] init 2;
 	[] x > 0 & (d < MIN_DEVICE | t < MIN_SERVER ) -> (x' = 0);
 	[] x = 2 & (d >= MIN_DEVICE & t >= MIN_SERVER ) -> lambda_m : (x' = x - 1);
-	[dis_rad_reboot] e = 1 & s >= MIN_SENSORS & m >= MIN_SERVER-> delta_d: (x' = 2);
+	[dis_rad_reboot] (x = 1 & m >= MIN_SERVER) ->  delta_d: (x' = 2);
 endmodule
-
 
 // entralized controller for taking data from pv and then passes to application
 module main_pro
@@ -96,29 +104,32 @@ module bus
 	// dispatch radio has been processed data and ready to send
 	redr : bool init false;
 
-	[pos_pro_reboot] true -> 1:
-	// perform a computation if it has already done or
-	// it is up and output clear
-	(comp' = (comp | (mp=1 & !redr)))
-	& (repa' = true)
-	// something is malfunction and redr can not function
-	& (redr' = !(x = 2 & d >= MIN_DEVICE & t >= MIN_SERVER & b >= MIN_BLESENDER & r >= MIN_BLERECEIVER) & (redr | mp = 1));
+	// first reboot
+	[pr1_reboot] true -> 1:
+	(comp' = (comp | mp=1 & !redr))
+	&(repa'=true)
+	& (redr' = !((pr1 > 0  & (pr2 > 0)) & a1 >= MIN_SENSOR & x = 2 & d >= MIN_DEVICE & t >= MIN_SERVER & b >= MIN_BLESENDER & r >= MIN_BLERECEIVER) & (redr | mp = 1));
 
+	// second reboot
+	[pr2_reboot] true -> 1:
+	(comp' = (comp | mp=1 & !redr))
+	&(repa'=true)
+	& (redr' = !((pr1 > 0  & (pr2 > 0)) & a2 >= MIN_SENSOR & x = 2 & d >= MIN_DEVICE & t >= MIN_SERVER & b >= MIN_BLESENDER & r >= MIN_BLERECEIVER) & (redr | mp = 1));
 
 	[dis_rad_reboot] true -> 1:
 	// perform a computation if true or output is clear
 	(comp' = (comp | (repa & mp = 1)))
-	& (repa' = (x=2 & s >= MIN_SENSORS & m >= MIN_SERVER & t >= MIN_SERVER & b >= MIN_BLESENDER & r >= MIN_BLERECEIVER & d >= MIN_DEVICE) | (repa & mp=0))
+	& (repa' = ((pr1 > 0  & (pr2 > 0)) & x=2 & m >= MIN_SERVER & t >= MIN_SERVER & b >= MIN_BLESENDER & r >= MIN_BLERECEIVER & d >= MIN_DEVICE) | (repa & mp=0))
 	& (redr' = false);
 
 	[timeout] true -> 1:
 	(comp'=(repa & !redr & mp=1))
-	&(repa' = (x=2 & s >= MIN_SENSORS & m >= MIN_SERVER & t >= MIN_SERVER & b >= MIN_BLESENDER & r >= MIN_BLERECEIVER & d >= MIN_DEVICE) | (repa & (redr | mp=0)))
-	&(redr'=!(x=2 & b >= 1) & (redr | (repa & mp=1)));
+	& (repa' = (x=2 & (pr1 > 0  & (pr2 > 0)) & m >= MIN_SERVER & t >= MIN_SERVER & b >= MIN_BLESENDER & r >= MIN_BLERECEIVER & d >= MIN_DEVICE) | (repa & (redr | mp=0)))
+	& (redr'=!(x=2 & b >= 1) & (redr | (repa & mp=1)));
 endmodule
 
-formula down = (m < MIN_SERVER) | (t < MIN_SERVER) | (b < MIN_BLESENDER) | (r < MIN_BLERECEIVER) | (d < MIN_DEVICE) | (e = 0) | (x = 0) | (s < MIN_SENSORS) | (count = MAX_COUNT + 1);
+formula down = (m < MIN_SERVER) | (t < MIN_SERVER) | (b < MIN_BLESENDER) | (r < MIN_BLERECEIVER) | (d < MIN_DEVICE) | (pr1 = 0)  | (pr2 = 0) | (x = 0) | (count = MAX_COUNT + 1);
 
-formula danger = !down & (e = 1 | x = 1);
+formula danger = !down & (pr1 = 1 | pr2 = 1 | x = 1);
 
 formula up = !down & !danger;

@@ -7,26 +7,21 @@ const int MIN_BLESENDER = 1;
 const int MIN_BLERECEIVER = 1;
 const int MIN_DEVICE = 1;
 const int MIN_SERVER = 1;
-const int MAX_SENSORS;
+
 
 const double lambda_y = 1 / (365*24*60*60); //1 year
-const double lambda_y2 = 1/(183*24*60*60); // 6 months
 const double lambda_m = 1 / (30 * 24 * 60 * 60); //1 month
-const double lambda_3m = 1/(3*30*24*60*60); // 3 months
-const double lambda_tm = 1 / (3*30*24*60*60); // months
+const double lambda_tm = 1 / (2*30*24*60*60); //2 months
 const double tau = 1 / 60; //1 min
-const double hour = 1/(60*60);// 1 hour
 const double delta_d = 1/(24*60*60);//1 day
-const double delta_w = 1/(7*24*60*60); // 1 week
-const double delta_2w = 1/(14*24*60*60); // 2 weeks
 const double delta_r = 1/30;//1 second
 const double bs_rate = 1/(15*24*60*60);
 const double br_rate = 1/(15*24*60*60);
 
 // sensors
 module pa
-	s : [0..MAX_SENSORS] init MAX_SENSORS; //number of sensors
-	[]s>1 -> s * delta_w*3: (s'=s-1);//failure of a single sensor
+	s : [0..4] init 4; //number of sensors
+	[]s>1 -> s * delta_d * 10: (s'=s-1);//failure of a single sensor
 endmodule
 
 
@@ -63,7 +58,7 @@ module pos_pro
 	e : [0..2] init 2;
 	[] e > 0 & (s < MIN_SENSORS | m < MIN_SERVER ) -> (e' = 0);
 	[] e  = 2 & (s >= MIN_SENSORS & m >= MIN_SERVER ) -> lambda_m : (e' = e - 1);
-	[pos_pro_reboot] e = 1 & s >= MIN_SENSORS & m >= MIN_SERVER-> delta_d: (e' = 2);
+	[pos_pro_reboot] e = 1 & m >= MIN_SERVER-> delta_d: (e' = 2);
 endmodule
 
 
