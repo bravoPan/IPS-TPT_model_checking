@@ -60,4 +60,4 @@ Result: Changing the number of sensors may not be dependable
 
 ## Final Paper
 
-[Please Check here]("./final_revision.pdf")
+[Please Check here](https://github.com/bravoPan/CSE108_IPS_model_checking/blob/master/final_revision.pdf)
