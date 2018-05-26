@@ -58,6 +58,6 @@ Result: Changing the number of sensors may not be dependable
 - Two models comparison
 
 
-### Final Paper
+## Final Paper
 
 [Please Check here]("./final_revision.pdf")
