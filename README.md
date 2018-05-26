@@ -56,3 +56,8 @@ Result: Changing the number of sensors may not be dependable
     - different failure rate of application
 
 - Two models comparison
+
+
+### Final Paper
+
+[Please Check here]("./final_revision.pdf")
