@@ -2,7 +2,7 @@
 
 ## CSE108 prism assignment
 
-Check with ![IEEE Xplore](https://ieeexplore.ieee.org/document/8589425/metrics#metrics)
+Check with [IEEE Xplore](https://ieeexplore.ieee.org/document/8589425/metrics#metrics)
 
 5 members team-work, guys work fun and enjoy it! 😙
 
